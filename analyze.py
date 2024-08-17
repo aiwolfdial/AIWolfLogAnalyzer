@@ -150,7 +150,12 @@ if __name__ == "__main__":
     appearRoleSet = set()       # role set
 
     for log in os.listdir(inifile.get("log","path")):
+        
+        if not util.is_game_log_file(file_name=log):
+            continue
+        
         currentLog = inifile.get("log","path") + log
+        
         analyze_log(inifile=inifile, agentGameResult=agentGameResult, appearRoleSet=appearRoleSet, analyzeLogPath=currentLog)
     
     print_result(inifile=inifile, agentGameResult=agentGameResult, appearRoleSet=appearRoleSet)
