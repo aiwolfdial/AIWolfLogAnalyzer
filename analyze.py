@@ -31,6 +31,10 @@ def initialize_agent(agentGameResult:dict, appearRoleSet:set, agentName:str, age
 def check_win_or_lose(agentGameResult:dict, currentGameRole:dict, winnerTeam:str):
 
     for agent in agentGameResult:
+
+        if currentGameRole.get(agent) is None:
+            continue
+
         agentRole = currentGameRole[agent]
 
         if Role.is_villager_team(role=agentRole):
